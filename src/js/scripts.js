@@ -22,10 +22,10 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(-4, 10, 15);
 camera.lookAt(cena.position);
 
-const iluminacao = new THREE.AmbientLight(0x80FF00);
+const iluminacao = new THREE.AmbientLight(0x333333));
 cena.add(iluminacao);
 
-const directionalLight = new THREE.DirectionalLight(0x32FF00, 1);
+const directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1);
 directionalLight.position.set(0, 10, 10);
 cena.add(directionalLight);
 
@@ -48,7 +48,7 @@ path.loop = true;
 
 veiculo.position.copy(path.current());
 
-veiculo.maxSpeed = 4;
+veiculo.maxSpeed = 5;
 
 
 const onPathBehavior = new YUKA.OnPathBehavior(path);
@@ -71,12 +71,12 @@ for(let i = 0; i < path._waypoints.length; i++) {
 
 
 const loader = new GLTFLoader();
-loader.load('./assets/SUV.glb', function(glb) {
+loader.load('./assets/Inception 911 GT2 RS.glb', function(glb) {
     const model = glb.scene;
    
     cena.add(model);
     model.matrixAutoUpdate = false;
-    veiculo.scale = new YUKA.Vector3(0.4, 0.3, 0.3);
+    veiculo.scale = new YUKA.Vector3(1, 1, 1);
     veiculo.setRenderComponent(model, sync);
 });
 

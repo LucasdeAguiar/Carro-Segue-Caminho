@@ -527,9 +527,9 @@ renderer.setClearColor(5949);
 const camera = new _three.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.3, 2000);
 camera.position.set(-4, 10, 15);
 camera.lookAt(cena.position);
-const iluminacao = new _three.AmbientLight(8453888);
+const iluminacao = new _three.AmbientLight(3355443);
 cena.add(iluminacao);
-const directionalLight = new _three.DirectionalLight(3342080, 1);
+const directionalLight = new _three.DirectionalLight(16777215, 1);
 directionalLight.position.set(0, 10, 10);
 cena.add(directionalLight);
 const veiculo = new _yuka.Vehicle();
@@ -543,7 +543,7 @@ path.add(new _yuka.Vector3(10, 0, 0));
 path.add(new _yuka.Vector3(5, 0, 5));
 path.loop = true;
 veiculo.position.copy(path.current());
-veiculo.maxSpeed = 4;
+veiculo.maxSpeed = 5;
 const onPathBehavior = new _yuka.OnPathBehavior(path);
 veiculo.steering.add(onPathBehavior);
 const entityManager = new _yuka.EntityManager();
@@ -556,11 +556,11 @@ for(let i = 0; i < path._waypoints.length; i++){
     posicao.push(waypoint.x, waypoint.y, waypoint.z);
 }
 const loader = new _gltfloader.GLTFLoader();
-loader.load('./assets/SUV.glb', function(glb) {
+loader.load('./assets/Inception 911 GT2 RS.glb', function(glb) {
     const model = glb.scene;
     cena.add(model);
     model.matrixAutoUpdate = false;
-    veiculo.scale = new _yuka.Vector3(0.4, 0.3, 0.3);
+    veiculo.scale = new _yuka.Vector3(1, 1, 1);
     veiculo.setRenderComponent(model, sync);
 });
 const lineGeometry = new _three.BufferGeometry();
